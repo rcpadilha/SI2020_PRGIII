@@ -5,40 +5,78 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<head>
+
+    <style>
+        .error {
+            color: #990000;
+            font-style: italic;
+            font-size: 0.7em;
+        }
+    </style>
+
+</head>
+
 <f:view>
 
     <h1>Calculadora Prestações</h1>
 
     <h:form id="formPrestacoes">
 
-        Valor da Compra: <br />
-        <h:inputText id="valorCompra" value="#{prestacaoBean.valorCompra}" />
+        Valor da Compra: <br/>
+        <h:inputText id="valorCompra" value="#{prestacaoBean.valorCompra}"
+                     required="true" requiredMessage="O valor da compra é obrigatório!"
+                     converterMessage="O valor da compra deve ser numérico!"/>
 
-        <br />
+        <div>
+            <h:message styleClass="error" for="valorCompra"/>
+        </div>
 
-        Taxa de Juros: <br />
-        <h:inputText id="taxaJuros" value="#{prestacaoBean.taxaJuros}"/>
+        <br/>
 
-        <br />
+        Taxa de Juros: <br/>
+        <h:inputText id="taxaJuros" value="#{prestacaoBean.taxaJuros}"
+                     required="true" requiredMessage="Taxa de juros é obrigatória!"
+                     converterMessage="A taxa de juros deve ser numérica!"/>
 
-        Número de Parcelas: <br />
-        <h:inputText id="parcelas" value="#{prestacaoBean.parcelas}"/>
+        <div>
+            <h:message styleClass="error" for="taxaJuros"/>
+        </div>
 
-        <br />
+        <br/>
 
-        <h:selectOneRadio id="tipoJuros" value="#{prestacaoBean.tipoJuros}" >
-            <f:selectItem itemValue="1" itemLabel="Juros Simples" />
-            <f:selectItem itemValue="2" itemLabel="Juros Compostos" />
+        Número de Parcelas: <br/>
+        <h:inputText id="parcelas" value="#{prestacaoBean.parcelas}"
+                     required="true" requiredMessage="O número de parcelas é obrigatório!"
+                     converterMessage="O número de parcelas deve ser numérico!"
+                     validatorMessage="O número de parcelas deve ser entre 2 e 12!">
+
+            <f:validateLongRange minimum="2" maximum="12" />
+
+        </h:inputText>
+
+        <div>
+            <h:message styleClass="error" for="parcelas"/>
+        </div>
+
+        <br/>
+
+        <h:selectOneRadio id="tipoJuros" value="#{prestacaoBean.tipoJuros}">
+            <f:selectItem itemValue="1" itemLabel="Juros Simples"/>
+            <f:selectItem itemValue="2" itemLabel="Juros Compostos"/>
         </h:selectOneRadio>
 
-        <br />
+        <br/>
 
-        <h:commandButton value="Calcular" action="#{prestacaoBean.calcular()}" />
+        <h:commandButton value="Calcular" action="#{prestacaoBean.calcular()}"/>
 
     </h:form>
 
-    <br />
-    <h:outputText value="#{prestacaoBean.valorParcela}"/>
+    <br/>
+    <h:outputText value="#{prestacaoBean.valorParcela}">
+        <f:convertNumber type="currency"/>
+    </h:outputText>
 
 </f:view>
 </html>
