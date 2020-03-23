@@ -25,7 +25,7 @@
     <h:form id="formPrestacoes">
 
         Valor da Compra: <br/>
-        <h:inputText id="valorCompra" value="#{prestacaoBean.valorCompra}"
+        <h:inputText id="valorCompra" value="#{prestacaoBean.prestacao.valorCompra}"
                      required="true" requiredMessage="O valor da compra é obrigatório!"
                      converterMessage="O valor da compra deve ser numérico!"/>
 
@@ -36,7 +36,7 @@
         <br/>
 
         Taxa de Juros: <br/>
-        <h:inputText id="taxaJuros" value="#{prestacaoBean.taxaJuros}"
+        <h:inputText id="taxaJuros" value="#{prestacaoBean.prestacao.taxaJuros}"
                      required="true" requiredMessage="Taxa de juros é obrigatória!"
                      converterMessage="A taxa de juros deve ser numérica!"/>
 
@@ -47,7 +47,7 @@
         <br/>
 
         Número de Parcelas: <br/>
-        <h:inputText id="parcelas" value="#{prestacaoBean.parcelas}"
+        <h:inputText id="parcelas" value="#{prestacaoBean.prestacao.parcelas}"
                      required="true" requiredMessage="O número de parcelas é obrigatório!"
                      converterMessage="O número de parcelas deve ser numérico!"
                      validatorMessage="O número de parcelas deve ser entre 2 e 12!">
@@ -62,7 +62,7 @@
 
         <br/>
 
-        <h:selectOneRadio id="tipoJuros" value="#{prestacaoBean.tipoJuros}">
+        <h:selectOneRadio id="tipoJuros" value="#{prestacaoBean.prestacao.tipoJuros}">
             <f:selectItem itemValue="1" itemLabel="Juros Simples"/>
             <f:selectItem itemValue="2" itemLabel="Juros Compostos"/>
         </h:selectOneRadio>
@@ -70,6 +70,8 @@
         <br/>
 
         <h:commandButton value="Calcular" action="#{prestacaoBean.calcular()}"/>
+        &#160;
+        <h:commandButton value="Limpar" action="#{prestacaoBean.limpar()}"/>
 
     </h:form>
 

@@ -4,7 +4,7 @@ import br.edu.unisep.prestacoes.domain.dto.PrestacaoDto;
 
 public class CalcularValorParcelaUseCase {
 
-    public Double calcular(PrestacaoDto dadosPrestacao) {
+    public Double execute(PrestacaoDto dadosPrestacao) {
         if (dadosPrestacao.getTipoJuros() == 1) {
             return (dadosPrestacao.getValorCompra() *
                     (1 + (dadosPrestacao.getTaxaJuros() / 100d * dadosPrestacao.getParcelas())))
