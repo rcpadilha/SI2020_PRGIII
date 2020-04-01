@@ -1,6 +1,7 @@
 package br.edu.unisep.contacts.bean;
 
 import br.edu.unisep.contacts.model.entity.Contact;
+import br.edu.unisep.contacts.usecase.DeleteContactUseCase;
 import br.edu.unisep.contacts.usecase.ListContactsUseCase;
 import lombok.Getter;
 import lombok.Setter;
@@ -14,13 +15,20 @@ import java.util.List;
 @RequestScoped
 public class ListContactsBean {
 
-    private ListContactsUseCase useCase = new ListContactsUseCase();
+    private ListContactsUseCase listUseCase = new ListContactsUseCase();
+    private DeleteContactUseCase deleteUseCase = new DeleteContactUseCase();
 
     @Getter @Setter
     private List<Contact> allContacts;
 
     @PostConstruct
     public void init() {
-        this.allContacts = useCase.execute();
+        this.allContacts = listUseCase.execute();
     }
+
+    public void delete(Integer id) {
+        deleteUseCase.execute(id);
+        init();
+    }
+
 }

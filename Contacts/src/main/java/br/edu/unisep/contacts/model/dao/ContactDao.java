@@ -64,4 +64,22 @@ public class ContactDao {
         return allContacts;
     }
 
+    public void delete(Integer id) {
+
+        try {
+            var connection = connect();
+
+            var ps = connection.prepareStatement("delete from contacts where id_contact = ?");
+            ps.setInt(1, id);
+
+            ps.execute();
+
+            ps.close();
+            connection.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 }
