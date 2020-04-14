@@ -3,10 +3,11 @@ package br.edu.unisep.contacts.usecase;
 import br.edu.unisep.contacts.model.dao.ContactDao;
 import br.edu.unisep.contacts.model.entity.Contact;
 
-public class DeleteContactUseCase {
+public class FindContactByIdUseCase {
 
-    public void execute(Contact contact) {
+    public Contact execute(Integer id) {
         var dao = new ContactDao();
-        dao.delete(contact);
+        return dao.findById(id);
     }
+
 }

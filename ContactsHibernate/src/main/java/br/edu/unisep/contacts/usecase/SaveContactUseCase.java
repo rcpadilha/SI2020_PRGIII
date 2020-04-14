@@ -7,7 +7,10 @@ public class SaveContactUseCase {
 
     public void execute(Contact contact) {
         var dao = new ContactDao();
-        dao.save(contact);
+        if (contact.getId() != null) {
+            dao.update(contact);
+        } else {
+            dao.save(contact);
+        }
     }
-
 }
