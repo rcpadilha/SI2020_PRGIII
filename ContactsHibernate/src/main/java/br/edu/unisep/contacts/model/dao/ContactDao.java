@@ -34,7 +34,15 @@ public class ContactDao {
     }
 
     public Contact findById(Integer id) {
-        return null;
+        var session = HibernateSessionFactory.getSession();
+
+        var query = session.createQuery("from Contact where id = :CONTACT_ID", Contact.class);
+        query.setParameter("CONTACT_ID", id);
+
+        var contact = query.uniqueResult();
+
+        session.close();
+        return contact;
     }
 
     public void delete(Contact contact) {
