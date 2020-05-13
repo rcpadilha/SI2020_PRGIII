@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<f:view>
+    <h2>Novo Bug</h2>
+
+    <h:form>
+        Título: <br/>
+        <h:inputText size="50" value="#{newBugBean.bug.title}"/>
+
+        <br/><br/>
+
+        Descrição: <br />
+        <h:inputTextarea cols="50" rows="4" value="#{newBugBean.bug.description}"/>
+
+        <br />
+
+        <h:panelGrid columns="2">
+
+            <h:panelGroup>
+                Data: <br/>
+                <h:inputText value="#{newBugBean.bug.reportDate}">
+                    <f:convertDateTime pattern="dd/MM/yyyy" type="localDate"/>
+                </h:inputText>
+            </h:panelGroup>
+
+            <h:panelGroup>
+                E-mail do Responsável: <br/>
+                <h:inputText size="30" value="#{newBugBean.bug.email}"/>
+            </h:panelGroup>
+
+        </h:panelGrid>
+
+        <br/>
+
+        <h:panelGrid columns="2">
+
+            <h:panelGroup>
+                Gravidade: <br/>
+                <h:selectOneRadio layout="pageDirection" value="#{newBugBean.bug.gravity}">
+                    <f:selectItem itemValue="1" itemLabel="Leve"/>
+                    <f:selectItem itemValue="2" itemLabel="Moderada"/>
+                    <f:selectItem itemValue="3" itemLabel="Alta"/>
+                </h:selectOneRadio>
+            </h:panelGroup>
+
+            <h:panelGroup>
+                Frequência: <br/>
+                <h:selectOneRadio  layout="pageDirection" value="#{newBugBean.bug.frequency}">
+                    <f:selectItem itemValue="1" itemLabel="Rara"/>
+                    <f:selectItem itemValue="2" itemLabel="Frequente"/>
+                    <f:selectItem itemValue="3" itemLabel="Sempre"/>
+                </h:selectOneRadio>
+            </h:panelGroup>
+        </h:panelGrid>
+
+        <br />
+
+        <h:commandButton value="Salvar" action="#{newBugBean.save()}"/>&#160;
+        <h:button value="Cancelar" outcome="index" />
+
+    </h:form>
+</f:view>
+</html>

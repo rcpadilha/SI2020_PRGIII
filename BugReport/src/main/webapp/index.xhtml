@@ -6,24 +6,47 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 <f:view>
 
-    <h2>Bug Repor</h2>
+    <h2>Bug Report</h2>
 
-    <h:dataTable width="90%" border="1">
+    <h:dataTable width="90%" border="1" value="#{listBugsBean.bugs}" var="bug">
         <h:column>
             <f:facet name="header">Bug</f:facet>
+            <h:outputText value="#{bug.title}"/>
         </h:column>
 
         <h:column>
             <f:facet name="header">Reportado em</f:facet>
+            <h:outputText value="#{bug.reportDate}">
+                <f:convertDateTime pattern="dd/MM/yyyy" type="localDate" />
+            </h:outputText>
         </h:column>
 
         <h:column>
             <f:facet name="header">Responsável</f:facet>
+            <h:outputText value="#{bug.email}"/>
         </h:column>
 
         <h:column>
             <f:facet name="header">Gravidade</f:facet>
+            <h:outputText value="Leve" rendered="#{bug.gravity == 1}"/>
+            <h:outputText value="Moderada" rendered="#{bug.gravity == 2}"/>
+            <h:outputText value="Alta" rendered="#{bug.gravity == 3}"/>
         </h:column>
+
+        <h:column>
+            <f:facet name="header">Frequencia</f:facet>
+            <h:outputText value="Rara" rendered="#{bug.frequency == 1}"/>
+            <h:outputText value="Frequente" rendered="#{bug.frequency == 2}"/>
+            <h:outputText value="Sempre" rendered="#{bug.frequency == 3}"/>
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Status</f:facet>
+            <h:outputText value="Aberto" rendered="#{bug.status == 1}"/>
+            <h:outputText value="Em Análise" rendered="#{bug.status == 2}"/>
+            <h:outputText value="Fechado" rendered="#{bug.status == 3}"/>
+        </h:column>
+
     </h:dataTable>
 
     <h:button value="Novo Bug" outcome="newBug" />
