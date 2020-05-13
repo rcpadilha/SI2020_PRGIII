@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<f:view>
+
+    <h2>Bug Repor</h2>
+
+    <h:dataTable width="90%" border="1">
+        <h:column>
+            <f:facet name="header">Bug</f:facet>
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Reportado em</f:facet>
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Responsável</f:facet>
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Gravidade</f:facet>
+        </h:column>
+    </h:dataTable>
+
+    <h:button value="Novo Bug" outcome="newBug" />
+
+</f:view>
+</html>
