@@ -10,6 +10,27 @@
 
     <ui:define name="content">
 
+        <h:form>
+
+            <h3>Novo Produtor</h3>
+
+            Nome: <br />
+            <h:inputText value="#{newFarmerBean.newFarmer.name}" size="30"/> <br /><br/>
+
+            Telefone: <br/>
+            <h:inputText value="#{newFarmerBean.newFarmer.phone}" size="20" /> <br /><br />
+
+            Comunidade: <br />
+            <h:selectOneMenu value="#{newFarmerBean.newFarmer.communityId}">
+                <f:selectItems value="#{newFarmerBean.communities}" var="community"
+                    itemValue="#{community.id}" itemLabel="#{community.name}"/>
+            </h:selectOneMenu>
+
+            <br /><br />
+
+            <h:commandButton value="Salvar" action="#{newFarmerBean.save()}" />
+
+        </h:form>
 
     </ui:define>
 
