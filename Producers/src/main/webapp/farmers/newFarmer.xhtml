@@ -14,22 +14,67 @@
 
             <h3>Novo Produtor</h3>
 
-            Nome: <br />
-            <h:inputText value="#{newFarmerBean.newFarmer.name}" size="30"/> <br /><br/>
+            <h:panelGrid columns="2">
+                <h:panelGroup>
+                    Nome: <br/>
+                    <h:inputText value="#{newFarmerBean.newFarmer.name}" size="30"/>
+                </h:panelGroup>
 
-            Telefone: <br/>
-            <h:inputText value="#{newFarmerBean.newFarmer.phone}" size="20" /> <br /><br />
+                <h:panelGroup>
+                    Telefone: <br/>
+                    <h:inputText value="#{newFarmerBean.newFarmer.phone}" size="20"/>
+                </h:panelGroup>
+            </h:panelGrid>
+            <br/>
 
-            Comunidade: <br />
-            <h:selectOneMenu value="#{newFarmerBean.newFarmer.communityId}">
-                <f:selectItems value="#{newFarmerBean.communities}" var="community"
-                    itemValue="#{community.id}" itemLabel="#{community.name}"/>
-            </h:selectOneMenu>
+            <h:panelGrid columns="1">
+                Comunidade: <br/>
+                <h:selectOneMenu value="#{newFarmerBean.newFarmer.communityId}">
+                    <f:selectItems value="#{newFarmerBean.communities}" var="community"
+                                   itemValue="#{community.id}" itemLabel="#{community.name}"/>
+                </h:selectOneMenu>
+            </h:panelGrid>
+            <br />
 
-            <br /><br />
+            <h:panelGrid columns="3">
+                <h:panelGroup>
+                    Produtos Comercializados:<br/>
+                    <h:selectOneMenu style="min-width: 180px" value="#{newFarmerBean.farmerProduce.produceId}">
+                        <f:selectItems value="#{newFarmerBean.produces}" var="prod"
+                                       itemValue="#{prod.id}" itemLabel="#{prod.name}"/>
+                    </h:selectOneMenu>
+                </h:panelGroup>
 
-            <h:commandButton value="Salvar" action="#{newFarmerBean.save()}" />
-            <h:commandButton value="Salvar" action="#{newFarmerBean.addNewItem()}" />
+                <h:panelGroup>
+                    Valor: <br />
+                    <h:inputText value="#{newFarmerBean.farmerProduce.price}" />
+                </h:panelGroup>
+
+                <h:panelGroup>
+                    <br />
+                    <h:commandButton value="Adicionar" action="#{newFarmerBean.addProduce()}" />
+                </h:panelGroup>
+
+            </h:panelGrid>
+
+            <h:dataTable value="#{newFarmerBean.newFarmer.produces}" var="fp" border="1" width="40%">
+                <h:column>
+                    <f:facet name="header">Produto</f:facet>
+                    <h:outputText value="#{fp.produceName}" />
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">Valor</f:facet>
+                    <h:outputText value="#{fp.price}">
+                        <f:convertNumber type="currency" locale="pt_BR" />
+                    </h:outputText>
+                </h:column>
+
+            </h:dataTable>
+
+            <br/>
+
+            <h:commandButton value="Salvar" action="#{newFarmerBean.save()}"/>
         </h:form>
 
     </ui:define>

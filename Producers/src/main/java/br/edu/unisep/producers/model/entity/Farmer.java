@@ -25,6 +25,6 @@ public class Farmer {
     @JoinColumn(name = "id_community")
     private Community community;
 
-    @OneToMany(mappedBy="farmer")
+    @OneToMany(mappedBy = "farmer", cascade = CascadeType.ALL)
     private List<FarmerProduce> produceList;
 }

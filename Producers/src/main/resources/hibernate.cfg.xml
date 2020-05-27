@@ -23,6 +23,8 @@
 		<!-- Classes Mapeadas -->
 		<mapping class="br.edu.unisep.producers.model.entity.Community" />
 		<mapping class="br.edu.unisep.producers.model.entity.Farmer" />
+		<mapping class="br.edu.unisep.producers.model.entity.Produce" />
+		<mapping class="br.edu.unisep.producers.model.entity.FarmerProduce" />
 
 	</session-factory>
 

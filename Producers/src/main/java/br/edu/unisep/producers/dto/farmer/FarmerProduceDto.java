@@ -5,17 +5,14 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
-
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class NewFarmerDto {
+public class FarmerProduceDto {
 
-    private String name;
-    private String phone;
-    private Integer communityId;
+    private Integer produceId;
+    private String produceName;
+    private Double price;
 
-    private List<FarmerProduceDto> produces;
 }
