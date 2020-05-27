@@ -5,7 +5,35 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
-<f:view>
-    <h:outputLabel value="Hello, world"/>
-</f:view>
+
+    <ui:composition template="/template/template.xhtml">
+
+        <ui:define name="content">
+
+            <h:dataTable width="80%" border="1" value="#{listFarmersBean.farmers}" var="farmer">
+
+                <h:column>
+                    <f:facet name="header">Nome do Produtor</f:facet>
+                    <h:outputText value="#{farmer.name}" />
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">Comunidade</f:facet>
+                    <h:outputText value="#{farmer.community}" />
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">Telefone</f:facet>
+                    <h:outputText value="#{farmer.phone}" />
+                </h:column>
+
+            </h:dataTable>
+
+            <br />
+            <h:button outcome="/farmers/newFarmer.xhtml" value="Novo Produtor" />
+        </ui:define>
+
+
+    </ui:composition>
+
 </html>

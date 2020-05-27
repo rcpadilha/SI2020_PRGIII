@@ -3,6 +3,7 @@ package br.edu.unisep.producers.bean.farmer;
 import br.edu.unisep.hibernate.exception.DaoException;
 import br.edu.unisep.producers.dto.community.CommunityDto;
 import br.edu.unisep.producers.dto.farmer.NewFarmerDto;
+import br.edu.unisep.producers.model.entity.FarmerProduce;
 import br.edu.unisep.producers.usecase.community.ListCommunitiesUseCase;
 import br.edu.unisep.producers.usecase.farmer.NewFarmerUseCase;
 import lombok.Getter;
@@ -10,13 +11,14 @@ import lombok.Setter;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
-import javax.faces.context.FacesContext;
-import javax.inject.Inject;
+import javax.faces.view.ViewScoped;
 import javax.inject.Named;
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 @Named
-@RequestScoped
+@ViewScoped
 public class NewFarmerBean {
 
     private NewFarmerUseCase newFarmerUseCase = new NewFarmerUseCase();
@@ -27,9 +29,6 @@ public class NewFarmerBean {
 
     @Getter @Setter
     private List<CommunityDto> communities;
-
-    @Inject
-    private FacesContext facesContext;
 
     @PostConstruct
     public void init() {
@@ -43,7 +42,6 @@ public class NewFarmerBean {
             e.printStackTrace();
         }
 
-        return "/index?faces-redirect=true";
+        return "/farmers/listFarmers.xhtml?faces-redirect=true";
     }
-
 }
