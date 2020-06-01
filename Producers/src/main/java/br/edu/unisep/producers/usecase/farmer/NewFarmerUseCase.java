@@ -44,8 +44,8 @@ public class NewFarmerUseCase {
 
         farmer.setProduceList(listProduces);
 
+        // Salva o farmer
         var dao = new HibernateDao<Farmer>();
         dao.save(farmer);
     }
-
 }
