@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Context antiJARLocking="true" path="APP_NAME">
+	<Realm className="org.apache.catalina.realm.JDBCRealm" 
+            debug="4"
+            driverName="org.postgresql.Driver"
+            connectionURL="URL_BANCO"
+            connectionName="postgres"
+            connectionPassword="SENHA_BANCO"
+            userTable="TABELA_USUARIOS"
+            userNameCol="CAMPO_LOGIN"
+            userCredCol="CAMPO_SENHA"
+            userRoleTable="TABELA_PAPEIS"
+            roleNameCol="COLUNA_PAPEL"
+        />
+</Context>
