@@ -11,11 +11,11 @@ public class UserRole {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "id_user")
     private User user;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "role_name")
     private Role role;
 

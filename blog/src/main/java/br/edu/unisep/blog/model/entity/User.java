@@ -3,7 +3,6 @@ package br.edu.unisep.blog.model.entity;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Data
 @Entity
@@ -24,6 +23,6 @@ public class User {
     @Column(name = "password")
     private String password;
 
-    @OneToMany(mappedBy = "user")
-    private List<UserRole> roles;
+    @OneToOne(mappedBy = "user")
+    private UserRole role;
 }
