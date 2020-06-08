@@ -7,12 +7,12 @@ import javax.persistence.*;
 public class UserRole {
 
     @Id
-    @Column(name = "id_user")
+    @Column(name = "id_userrole")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @OneToOne
-    @JoinColumn(name = "id_user")
+    @JoinColumn(name = "login")
     private User user;
 
     @OneToOne

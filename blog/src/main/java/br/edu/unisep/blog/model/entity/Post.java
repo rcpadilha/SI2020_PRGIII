@@ -21,7 +21,7 @@ public class Post {
     private String content;
 
     @OneToOne
-    @JoinColumn(name = "id_user")
+    @JoinColumn(name = "login")
     private User user;
 
 }

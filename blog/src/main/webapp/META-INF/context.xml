@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<Context antiJARLocking="true" path="APP_NAME">
+<Context antiJARLocking="true" path="blog">
 	<Realm className="org.apache.catalina.realm.JDBCRealm" 
-            debug="4"
+            debug="99"
             driverName="org.postgresql.Driver"
-            connectionURL="URL_BANCO"
+            connectionURL="jdbc:postgresql://localhost:5432/db_blog"
             connectionName="postgres"
-            connectionPassword="SENHA_BANCO"
-            userTable="TABELA_USUARIOS"
-            userNameCol="CAMPO_LOGIN"
-            userCredCol="CAMPO_SENHA"
-            userRoleTable="TABELA_PAPEIS"
-            roleNameCol="COLUNA_PAPEL"
+            connectionPassword="admin"
+            userTable="users"
+            userNameCol="login"
+            userCredCol="password"
+            userRoleTable="user_roles"
+            roleNameCol="role_name"
         />
 </Context>
