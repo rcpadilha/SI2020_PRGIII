@@ -16,11 +16,12 @@
             <h:link styleClass="navbar-brand" value="Blog" outcome="home" />
             <h:form styleClass="form-inline">
                 <small class="text-white" style="margin-right: 20px">
-                    Olá, XXXXXXXXXXXXXX
+                    Olá, <h:outputText value="#{userBean.user.name}" />
                 </small>
-                <h:commandButton styleClass="btn btn-outline-info" value="Novo Post"
-                                 action="/app/newPost.xhtml"/>
-                <h:commandButton styleClass="btn btn-outline-danger ml-2" value="Sair" />
+                <h:link styleClass="btn btn-outline-info" value="Novo Post"
+                        outcome="/app/newPost.xhtml"/>
+                <h:commandButton styleClass="btn btn-outline-danger ml-2" value="Sair"
+                                 action="#{loginBean.logout()}"/>
             </h:form>
         </div>
     </nav>

@@ -10,7 +10,9 @@ import javax.enterprise.context.RequestScoped;
 import javax.faces.context.ExternalContext;
 import javax.inject.Inject;
 import javax.inject.Named;
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
+import java.io.IOException;
 
 @Named
 @RequestScoped
@@ -50,4 +52,25 @@ public class LoginBean {
         return "app/home.xhtml?faces-redirect=true";
     }
 
+    public String logout() {
+        try {
+            var request = (HttpServletRequest) context.getRequest();
+            request.logout();
+            userBean.clearUser();
+        } catch (ServletException e) {
+            e.printStackTrace();
+        }
+
+        return "/index.xhtml?faces-redirect=true";
+    }
+
+    public void checkLogin(){
+        try {
+            if (userBean.getUser() != null) {
+                context.redirect("app/home.xhtml");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

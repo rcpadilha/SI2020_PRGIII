@@ -19,6 +19,7 @@
                             <div class="form-group">
                                 <h:outputLabel for="titulo" value="Título:"/>
                                 <h:inputText id="titulo" styleClass="form-control"
+                                             value="#{newPostBean.post.title}"
                                              required="true"
                                              requiredMessage="Título é obrigatório"/>
 
@@ -28,21 +29,14 @@
                             <div class="form-group">
                                 <h:outputLabel for="conteudo" value="Conteúdo:"/>
                                 <h:inputTextarea id="conteudo" styleClass="form-control" rows="10"
+                                                 value="#{newPostBean.post.content}"
                                                  required="true"
                                                  requiredMessage="Conteúdo é obrigatório"/>
                                 <h:message for="conteudo" styleClass="small text-danger"/>
                             </div>
 
-                            <div class="form-group">
-                                <h:outputLabel for="tags" value="Tags:"/>
-                                <h:inputText id="tags" styleClass="form-control"
-                                             required="true"
-                                             requiredMessage="Tags são obrigatórias"/>
-                                <h:message for="tags" styleClass="small text-danger"/>
-                            </div>
-
                             <div class="btn-toolbar">
-                                <h:commandButton value="Salvar" styleClass="btn btn-primary"/>
+                                <h:commandButton value="Salvar" styleClass="btn btn-primary" action="#{newPostBean.save}"/>
                                 <h:commandButton value="Cancelar"
                                                  styleClass="btn btn-outline-secondary ml-2"
                                                  action="home?faces-redirect=true" immediate="true"/>

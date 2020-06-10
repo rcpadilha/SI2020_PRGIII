@@ -3,6 +3,7 @@ package br.edu.unisep.blog.model.entity;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Data
 @Entity
@@ -19,6 +20,9 @@ public class Post {
 
     @Column(name = "content")
     private String content;
+
+    @Column(name = "date")
+    private LocalDateTime date;
 
     @OneToOne
     @JoinColumn(name = "login")

@@ -20,4 +20,8 @@ public class UserBean implements Serializable {
     public void loadUser(String login) {
         user = useCase.execute(login);
     }
+
+    public void clearUser() {
+        this.user = null;
+    }
 }
