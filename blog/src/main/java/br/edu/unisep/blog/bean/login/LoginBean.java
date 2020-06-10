@@ -1,5 +1,6 @@
 package br.edu.unisep.blog.bean.login;
 
+import br.edu.unisep.blog.bean.user.UserBean;
 import br.edu.unisep.blog.dto.login.LoginDto;
 import lombok.Getter;
 import lombok.Setter;
@@ -15,23 +16,33 @@ import javax.servlet.http.HttpServletRequest;
 @RequestScoped
 public class LoginBean {
 
-    @Getter @Setter
+    @Getter
+    @Setter
     private LoginDto loginData = new LoginDto();
 
     @Inject
     private ExternalContext context;
 
+    @Inject
+    private UserBean userBean;
+
     public String login() {
         var request = (HttpServletRequest) context.getRequest();
 
         try {
+            // Realiza logout da sessão
+            request.logout();
+
             // Converte a senha informada pelo usuário na tela em MD5
             var password = DigestUtils.md5Hex(loginData.getPassword());
 
             // Executa a autenticação de login na requisição
             request.login(loginData.getLogin(), password);
 
-        } catch(Exception e) {
+            // Carrega os dados do usuário logado no bean de sessão.
+            userBean.loadUser(loginData.getLogin());
+
+        } catch (Exception e) {
             e.printStackTrace();
             return "index.xhtml";
         }

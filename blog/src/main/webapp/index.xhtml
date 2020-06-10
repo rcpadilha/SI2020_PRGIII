@@ -5,17 +5,35 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 
+<h:head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous" />
+
+    <h:outputStylesheet library="css" name="login.css" />
+</h:head>
+
 <f:view>
 
-    <h:form>
-        Login: <br/>
-        <h:inputText value="#{loginBean.loginData.login}"/> <br /><br />
+    <div class="bg-login">
 
-        Senha: <br />
-        <h:inputSecret value="#{loginBean.loginData.password}"/> <br /><br />
+        <h:form styleClass="form-login">
+            <h3>blog | acesso</h3>
 
-        <h:commandButton value="Entrar" action="#{loginBean.login()}" />
-    </h:form>
+            <div class="form-group">
+                <h:outputLabel for="login" value="Login:" />
+                <h:inputText value="#{loginBean.loginData.login}" id="login" styleClass="form-control"/>
+            </div>
+
+            <div class="form-group">
+                <h:outputLabel for="password" value="Senha:" />
+                <h:inputSecret value="#{loginBean.loginData.password}" id="password" styleClass="form-control"/>
+            </div>
+
+            <div class="form-group">
+                <h:commandButton value="Entrar" action="#{loginBean.login()}" styleClass="btn btn-primary btn-block"  />
+            </div>
+        </h:form>
+
+    </div>
 
 </f:view>
 </html>
