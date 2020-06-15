@@ -7,7 +7,7 @@
 
 <f:view>
 
-    <ui:composition template="template/template.xhtml">
+    <ui:composition template="/template/template.xhtml">
 
         <ui:define name="content">
             <div class="container">
@@ -20,12 +20,14 @@
                             <div class="form-group col-sm-6">
                                 <h:outputLabel for="student" value="Aluno:"/>
                                 <h:selectOneMenu id="student" styleClass="form-control">
-                                    <f:selectItems itemValue="1" itemLabel="XXXXXXXXXX"/>
-                                    <f:selectItems itemValue="2" itemLabel="XXXXXXXXXX"/>
-                                    <f:selectItems itemValue="3" itemLabel="XXXXXXXXXX"/>
-                                    <f:selectItems itemValue="4" itemLabel="XXXXXXXXXX"/>
-                                    <f:selectItems itemValue="5" itemLabel="XXXXXXXXXX"/>
+                                    <f:selectItems value="#{listUserBean.users}" var="user"
+                                                   itemValue="#{user.login}" itemLabel="#{user.name}"/>
                                 </h:selectOneMenu>
+                            </div>
+
+                            <div class="form-group col-sm-7">
+                                <h:outputLabel for="name" value="Nome:" />
+                                <h:inputText id="name" styleClass="form-control" />
                             </div>
 
                             <div class="form-group col-sm-3">
@@ -34,6 +36,20 @@
                             </div>
 
                             <p style="padding-left: 15px">Escolha os exercícios que fazem parte do treino</p>
+
+                            <h:dataTable styleClass="table table-striped col-sm-8"
+                                value="#{listExercisesBean.exercises}" var="e">
+
+                                <h:column>
+                                    <h:outputText value="#{e.name}" />
+                                </h:column>
+
+                                <h:column>
+                                    <h:commandButton value="Adicionar" styleClass="btn btn-success" />
+                                </h:column>
+
+                            </h:dataTable>
+
 
                             <div class="btn-toolbar col-sm-6" style="margin-top: 20px">
                                 <h:commandButton value="Salvar" styleClass="btn btn-primary"/>

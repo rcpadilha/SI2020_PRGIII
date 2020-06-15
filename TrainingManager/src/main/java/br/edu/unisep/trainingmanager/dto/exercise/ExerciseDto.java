@@ -1,4 +1,4 @@
-package br.edu.unisep.trainingmanager.dto.login;
+package br.edu.unisep.trainingmanager.dto.exercise;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -7,11 +7,11 @@ import lombok.NoArgsConstructor;
 
 @Data
 @Builder
-@NoArgsConstructor
 @AllArgsConstructor
-public class UserDto {
+@NoArgsConstructor
+public class ExerciseDto {
 
-    private String login;
+    private Integer id;
     private String name;
-    private String role;
+
 }

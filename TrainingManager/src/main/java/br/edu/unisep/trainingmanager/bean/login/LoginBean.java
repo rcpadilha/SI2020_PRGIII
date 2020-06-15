@@ -49,7 +49,11 @@ public class LoginBean {
             return "index.xhtml";
         }
 
-        return "app/home.xhtml?faces-redirect=true";
+        if (userBean.getUser().getRole().equals("TRAINER")) {
+            return "app/home.xhtml?faces-redirect=true";
+        } else {
+            return "user/home.xhtml?faces-redirect=true";
+        }
     }
 
     public String logout() {

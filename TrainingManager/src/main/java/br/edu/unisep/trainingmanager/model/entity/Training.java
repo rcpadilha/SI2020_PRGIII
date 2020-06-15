@@ -22,6 +22,9 @@ public class Training {
     @Column(name="frequency")
     private Integer frequency;
 
+    @Column(name = "name")
+    private String name;
+
     @OneToMany(mappedBy = "training", cascade = CascadeType.ALL)
     private List<TrainingExercise> exercises;
 

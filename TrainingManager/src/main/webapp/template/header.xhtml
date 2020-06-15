@@ -14,7 +14,10 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
             <h:link styleClass="navbar-brand" value="Training Manager" outcome="home" />
-            <div class="collapse navbar-collapse" id="navbarNav">
+
+            <h:panelGroup styleClass="collapse navbar-collapse" id="navbarNav"
+                          rendered="#{userBean.user.role == 'TRAINER'}">
+
                 <ul class="navbar-nav">
                     <li class="nav-item active">
                         <h:link styleClass="nav-link" value="Exercícios" outcome="exercises" />
@@ -23,7 +26,8 @@
                         <h:link styleClass="nav-link" value="Treinamentos" outcome="trainings" />
                     </li>
                 </ul>
-            </div>
+            </h:panelGroup>
+
             <h:form styleClass="form-inline">
                 <small class="text-white" style="margin-right: 20px">
                     Olá, <h:outputText value="#{userBean.user.name}" />

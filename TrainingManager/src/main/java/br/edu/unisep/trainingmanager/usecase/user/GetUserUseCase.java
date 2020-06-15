@@ -12,6 +12,7 @@ public class GetUserUseCase {
         return UserDto.builder()
                 .login(user.getLogin())
                 .name(user.getName())
+                .role(user.getRole().getRole().getName())
                 .build();
     }
 
