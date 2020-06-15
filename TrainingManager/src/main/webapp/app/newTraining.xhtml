@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<f:view>
+
+    <ui:composition template="template/template.xhtml">
+
+        <ui:define name="content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 offset-md-2">
+
+                        <h:form>
+                            <h3>Novo Treino</h3>
+
+                            <div class="form-group col-sm-6">
+                                <h:outputLabel for="student" value="Aluno:"/>
+                                <h:selectOneMenu id="student" styleClass="form-control">
+                                    <f:selectItems itemValue="1" itemLabel="XXXXXXXXXX"/>
+                                    <f:selectItems itemValue="2" itemLabel="XXXXXXXXXX"/>
+                                    <f:selectItems itemValue="3" itemLabel="XXXXXXXXXX"/>
+                                    <f:selectItems itemValue="4" itemLabel="XXXXXXXXXX"/>
+                                    <f:selectItems itemValue="5" itemLabel="XXXXXXXXXX"/>
+                                </h:selectOneMenu>
+                            </div>
+
+                            <div class="form-group col-sm-3">
+                                <h:outputLabel for="frequency" value="Frequência:"/>
+                                <h:inputText id="frequency" styleClass="form-control"/>
+                            </div>
+
+                            <p style="padding-left: 15px">Escolha os exercícios que fazem parte do treino</p>
+
+                            <div class="btn-toolbar col-sm-6" style="margin-top: 20px">
+                                <h:commandButton value="Salvar" styleClass="btn btn-primary"/>
+                                <h:commandButton value="Cancelar"
+                                                 styleClass="btn btn-outline-secondary ml-2"
+                                                 action="trainings?faces-redirect=true" immediate="true"/>
+                            </div>
+                        </h:form>
+                    </div>
+                </div>
+            </div>
+        </ui:define>
+
+    </ui:composition>
+
+</f:view>
+</html>
