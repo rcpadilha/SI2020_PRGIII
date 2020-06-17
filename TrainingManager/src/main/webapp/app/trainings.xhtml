@@ -10,15 +10,19 @@
 
         <ui:define name="content">
             <div class="container">
-                <h:dataTable styleClass="table table-striped">
+                <h:dataTable styleClass="table table-striped"
+                             value="#{listTrainingBean.trainings}" var="t">
                     <h:column>
                         <f:facet name="header">Aluno</f:facet>
+                        <h:outputText value="#{t.user}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Nome do Treino</f:facet>
+                        <h:outputText value="#{t.name}"/>
                     </h:column>
                     <h:column>
                         <f:facet name="header">Frequência</f:facet>
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">&#160;</f:facet>
+                        <h:outputText value="#{t.frequency}"/>
                     </h:column>
                 </h:dataTable>
                 <h:link styleClass="btn btn-primary" value="Novo Treino"
