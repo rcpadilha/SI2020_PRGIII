@@ -7,7 +7,7 @@
 
 	<session-factory>
 		<property name="connection.url">
-			jdbc:postgresql://localhost:5432/db_training
+			jdbc:postgresql://localhost:5432/db_restaurant
 		</property>
 		<property name="connection.username">postgres</property>
 		<property name="connection.password">admin</property>
@@ -21,12 +21,13 @@
 		<property name="hibernate.format_sql">true</property>
 
 		<!-- Classes Mapeadas -->
-		<mapping class="br.edu.unisep.trainingmanager.model.entity.User" />
-		<mapping class="br.edu.unisep.trainingmanager.model.entity.Role" />
-		<mapping class="br.edu.unisep.trainingmanager.model.entity.UserRole" />
-		<mapping class="br.edu.unisep.trainingmanager.model.entity.Exercise" />
-		<mapping class="br.edu.unisep.trainingmanager.model.entity.Training" />
-		<mapping class="br.edu.unisep.trainingmanager.model.entity.TrainingExercise" />
+		<mapping class="br.edu.unisep.restaurant.model.entity.User" />
+		<mapping class="br.edu.unisep.restaurant.model.entity.Role" />
+		<mapping class="br.edu.unisep.restaurant.model.entity.UserRole" />
+		<mapping class="br.edu.unisep.restaurant.model.entity.Dish" />
+		<mapping class="br.edu.unisep.restaurant.model.entity.Order" />
+		<mapping class="br.edu.unisep.restaurant.model.entity.DishOrder" />
+		<mapping class="br.edu.unisep.restaurant.model.entity.Client" />
 
 	</session-factory>
 
