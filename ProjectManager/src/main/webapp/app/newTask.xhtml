@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<f:view>
+    <ui:composition template="/app/template/template.xhtml">
+
+        <ui:define name="content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 offset-md-2">
+
+                        <h:form id="form">
+                            <h4 style="margin-bottom: 30px">Nova Tarefa</h4>
+
+                            <div class="row">
+                                <div class="form-group col-sm-6">
+                                    <h:outputLabel for="project" value="Projeto:"/>
+                                    <h:selectOneMenu id="project"
+                                                     styleClass="form-control">
+                                    </h:selectOneMenu>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-sm-6">
+                                    <h:outputLabel for="description" value="Descrição:"/>
+                                    <h:inputTextarea id="description"
+                                                     styleClass="form-control" />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-sm-3">
+                                    <h:outputLabel for="estimatedTime" value="Tempo (horas):" />
+                                    <h:inputText styleClass="form-control col-sm-6" id="estimatedTime" />
+                                </div>
+                            </div>
+
+                            <div class="btn-toolbar col-sm-6" style="margin-top: 20px">
+                                <h:commandButton value="Salvar" styleClass="btn btn-primary"/>
+                                <h:commandButton value="Cancelar"
+                                                 styleClass="btn btn-outline-secondary ml-2"
+                                                 action="home?faces-redirect=true" immediate="true"/>
+                            </div>
+                        </h:form>
+                    </div>
+                </div>
+            </div>
+        </ui:define>
+
+    </ui:composition>
+</f:view>
+</html>
